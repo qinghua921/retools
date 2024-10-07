@@ -17,9 +17,9 @@ ReTools::~ReTools()
 
 void ReTools::caidan_dianji(QAction *action)
 {
-    if (action == ui->action_pe_info)
+    if (action == ui->pe_info_dianji)
     {
         auto peinfo = new PeInfo(this);
-        ui->verticalLayout->addWidget(peinfo);
+        ui->zhuwutai->addWidget(peinfo);
     }
 }

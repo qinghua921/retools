@@ -11,12 +11,24 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>retools</string>
+   <string>ReTools</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout"/>
+     <layout class="QVBoxLayout" name="zhuwutai"/>
     </item>
    </layout>
   </widget>
@@ -33,12 +45,12 @@
     <property name="title">
      <string>PeInfo</string>
     </property>
-    <addaction name="action_pe_info"/>
+    <addaction name="pe_info_dianji"/>
    </widget>
    <addaction name="menuPeInfo"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="action_pe_info">
+  <widget class="QStatusBar" name="zhuangtailan"/>
+  <action name="pe_info_dianji">
    <property name="text">
     <string>Info</string>
    </property>
