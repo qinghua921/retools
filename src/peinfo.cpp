@@ -1,14 +1,14 @@
-#include "peinfo.h"
+#include "peinfo.hpp"
 #include "ui_peinfo.h"
 
-peinfo::peinfo(QWidget *parent)
+PeInfo::PeInfo(QWidget *parent)
     : QWidget(parent),
-      ui(new Ui::peinfo)
+      ui(new Ui::PeInfo)
 {
     ui->setupUi(this);
 }
 
-peinfo::~peinfo()
+PeInfo::~PeInfo()
 {
     delete ui;
 }

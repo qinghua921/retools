@@ -1,12 +1,12 @@
-#include "retools.h"
+#include "retools.hpp"
 
 #include <QApplication>
 #pragma comment(lib, "user32.lib")
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    retools w;
-    w.show();
-    return a.exec();
+    QApplication app(argc, argv);
+    ReTools retools;
+    retools.show();
+    return app.exec();
 }

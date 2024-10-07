@@ -3,13 +3,13 @@
 #include "ui_retools.h"
 #include <QMainWindow>
 
-class retools : public QMainWindow
+class ReTools : public QMainWindow
 {
     Q_OBJECT
 
   public:
-    retools(QWidget *parent = nullptr);
-    ~retools();
+    ReTools(QWidget *parent = nullptr);
+    ~ReTools();
 
   private:
     Ui_retools *ui;
