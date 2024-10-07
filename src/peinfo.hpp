@@ -12,9 +12,10 @@ class PeInfo : public QWidget
     Q_OBJECT
 
   public:
-    explicit PeInfo(QWidget *parent = nullptr);
     ~PeInfo();
+    static PeInfo *caidan_dianji();
 
   private:
+    PeInfo(QWidget *parent = nullptr);
     Ui::PeInfo *ui;
 };

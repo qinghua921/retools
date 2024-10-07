@@ -1,5 +1,4 @@
-#ifndef DEMO_H
-#define DEMO_H
+#pragma once
 
 #include <QWidget>
 
@@ -20,4 +19,3 @@ class Demo : public QWidget
     Ui::Demo *ui;
 };
 
-#endif // DEMO_H

@@ -11,4 +11,10 @@ PeInfo::PeInfo(QWidget *parent)
 PeInfo::~PeInfo()
 {
     delete ui;
+    qDebug() << "PeInfo::~PeInfo()";
+}
+
+PeInfo *PeInfo::caidan_dianji()
+{
+    return new PeInfo();
 }

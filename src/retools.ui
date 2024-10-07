@@ -43,7 +43,7 @@
    </property>
    <widget class="QMenu" name="menuPeInfo">
     <property name="title">
-     <string>PeInfo</string>
+     <string>Pe</string>
     </property>
     <addaction name="pe_info_dianji"/>
    </widget>

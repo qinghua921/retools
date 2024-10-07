@@ -9,6 +9,7 @@ AlignConsecutiveAssignments:
   AcrossComments: true
 BinPackArguments: false
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AllowShortLoopsOnASingleLine: true
 AlignConsecutiveMacros:
   Enabled: true
   AcrossEmptyLines: true

@@ -17,9 +17,17 @@ ReTools::~ReTools()
 
 void ReTools::caidan_dianji(QAction *action)
 {
-    if (action == ui->pe_info_dianji)
+    QWidget *widget = nullptr;
+
+    if (action == ui->pe_info_dianji) widget = PeInfo::caidan_dianji();
+
+    if (widget)
     {
-        auto peinfo = new PeInfo(this);
-        ui->zhuwutai->addWidget(peinfo);
+        for (int i = 0; i < ui->zhuwutai->count(); ++i)
+        {
+            auto item = ui->zhuwutai->itemAt(i);
+            item->widget()->deleteLater();
+        }
+        ui->zhuwutai->addWidget(widget);
     }
 }

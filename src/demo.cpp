@@ -1,4 +1,4 @@
-#include "demo.h"
+#include "demo.hpp"
 #include "ui_demo.h"
 
 Demo::Demo(QWidget *parent)
