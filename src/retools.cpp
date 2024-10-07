@@ -1,5 +1,6 @@
 #include "retools.h"
 #include "iostream"
+#include "peinfo.h"
 
 retools::retools(QWidget *parent)
     : QMainWindow(parent), ui(new Ui_retools)
@@ -18,6 +19,7 @@ void retools::caidan_dianji(QAction *action)
 {
     if (action == ui->action_pe_info)
     {
-        std::cout << "pe_info" << std::endl;
+        auto peinfo1 = new peinfo(this);
+        ui->centralwidget->layout()->addWidget(peinfo1);
     }
 }
