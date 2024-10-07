@@ -12,4 +12,5 @@ class retools : public QMainWindow
 
   private:
     Ui_retools *ui;
+    void caidan_dianji(QAction *action);
 };
