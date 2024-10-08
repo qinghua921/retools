@@ -1,12 +1,15 @@
 #include "peinfo.hpp"
 #include "ui_peinfo.h"
 #include <QFileDialog>
+#include <QMessageBox>
 
 PeInfo::PeInfo(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::PeInfo)
 {
     ui->setupUi(this);
+
+    connect(ui->zuoshu, &QTreeWidget::itemClicked, this, &PeInfo::zuoshu_dianji);
 }
 
 boolean PeInfo::jiexi_pe()
@@ -26,11 +29,11 @@ void PeInfo::huizhi_pe()
     // 绘制 Dos Header 表格
     auto row         = 0;
 
-    auto huizhi_hang = [this, &row](const char *name, LONG offset)
+    auto huizhi_hang = [this, &row](const char *name, LONG value)
     {
         ui->dos_header_biaoge->setRowCount(row + 1);
         ui->dos_header_biaoge->setItem(row, 0, new QTableWidgetItem(name));
-        ui->dos_header_biaoge->setItem(row, 1, new QTableWidgetItem(QString::number(offset, 16).toUpper()));
+        ui->dos_header_biaoge->setItem(row, 1, new QTableWidgetItem(QString::number(value, 16).toUpper()));
         row++;
     };
 
@@ -55,13 +58,22 @@ void PeInfo::huizhi_pe()
     huizhi_hang("e_lfanew", this->dos_header->e_lfanew);
 }
 
+void PeInfo::zuoshu_dianji(QTreeWidgetItem *item, int column)
+{
+    auto text = item->text(column);
+    qDebug() << "PeInfo::zuoshu_dianji()" << item->text(column) << column;
+    if (text == "Dos Header") ui->yemian->setCurrentWidget(ui->dos_header_ye);
+    else if (text == "Nt Header") ui->yemian->setCurrentWidget(ui->nt_header_ye);
+    else QMessageBox::warning(this, "Error", "Unknown item");
+}
+
 PeInfo::~PeInfo()
 {
     delete ui;
     qDebug() << "PeInfo::~PeInfo()";
 }
 
-PeInfo *PeInfo::caidan_dianji()
+PeInfo *PeInfo::caidan_dianji(QWidget *parent)
 {
     // 选取文件
     auto wenjian_mingcheng = QFileDialog::getOpenFileName(nullptr, "Select PE File", "", "All Files (*)");
@@ -73,7 +85,7 @@ PeInfo *PeInfo::caidan_dianji()
     QByteArray data = file.readAll();
     file.close();
 
-    auto ret               = new PeInfo();
+    auto ret               = new PeInfo(parent);
     ret->wenjian_mingcheng = wenjian_mingcheng;
     ret->wenjian_neicun    = data;
     if (!ret->jiexi_pe())

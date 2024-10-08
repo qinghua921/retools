@@ -19,7 +19,7 @@ void ReTools::caidan_dianji(QAction *action)
 {
     QWidget *widget = nullptr;
 
-    if (action == ui->pe_info_dianji) widget = PeInfo::caidan_dianji();
+    if (action == ui->pe_info_dianji) widget = PeInfo::caidan_dianji(this);
 
     if (widget)
     {

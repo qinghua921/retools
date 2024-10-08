@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QTreeWidgetItem>
 #include <QWidget>
 #include <Windows.h>
 
@@ -14,7 +15,7 @@ class PeInfo : public QWidget
 
   public:
     ~PeInfo();
-    static PeInfo *caidan_dianji();
+    static PeInfo *caidan_dianji(QWidget *parent);
 
   private:
     Ui::PeInfo *ui;
@@ -26,4 +27,5 @@ class PeInfo : public QWidget
     PeInfo(QWidget *parent = nullptr);
     boolean jiexi_pe();
     void huizhi_pe();
+    void zuoshu_dianji(QTreeWidgetItem *item, int column);
 };
