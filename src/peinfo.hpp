@@ -25,4 +25,5 @@ class PeInfo : public QWidget
 
     PeInfo(QWidget *parent = nullptr);
     boolean jiexi_pe();
+    void huizhi_pe();
 };

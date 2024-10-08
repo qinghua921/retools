@@ -10,7 +10,10 @@ AlignConsecutiveAssignments:
 BinPackArguments: false
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLoopsOnASingleLine: true
+AllowShortLambdasOnASingleLine: All
 AlignConsecutiveMacros:
   Enabled: true
   AcrossEmptyLines: true
   AcrossComments: true
+BraceWrapping:
+  BeforeLambdaBody: true

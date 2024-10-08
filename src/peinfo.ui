@@ -44,7 +44,23 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget"/>
+      <widget class="QTableWidget" name="dos_header_biaoge">
+       <column>
+        <property name="text">
+         <string>Name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Value</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Description</string>
+        </property>
+       </column>
+      </widget>
      </item>
     </layout>
    </item>
