@@ -24,15 +24,14 @@ boolean PeInfo::jiexi_pe()
 void PeInfo::huizhi_pe()
 {
     // 绘制 Dos Header 表格
-    auto biaoge      = ui->dos_header_biaoge;
-    auto row         = -1;
+    auto row         = 0;
 
-    auto huizhi_hang = [&biaoge, &row](const char *name, LONG offset)
+    auto huizhi_hang = [this, &row](const char *name, LONG offset)
     {
+        ui->dos_header_biaoge->setRowCount(row + 1);
+        ui->dos_header_biaoge->setItem(row, 0, new QTableWidgetItem(name));
+        ui->dos_header_biaoge->setItem(row, 1, new QTableWidgetItem(QString::number(offset, 16).toUpper()));
         row++;
-        biaoge->setRowCount(row + 1);
-        biaoge->setItem(row, 0, new QTableWidgetItem(name));
-        biaoge->setItem(row, 1, new QTableWidgetItem(QString::number(offset, 16)));
     };
 
     huizhi_hang("e_magic", this->dos_header->e_magic);
