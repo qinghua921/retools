@@ -21,8 +21,11 @@ class PeInfo : public QWidget
     Ui::PeInfo *ui;
     QString wenjian_mingcheng;
     QByteArray wenjian_neicun;
-    PIMAGE_DOS_HEADER dos_header;
-    PIMAGE_NT_HEADERS nt_headers;
+    PIMAGE_DOS_HEADER dos_header                = nullptr;
+    PIMAGE_NT_HEADERS nt_headers                = nullptr;
+    PIMAGE_FILE_HEADER file_header              = nullptr;
+    PIMAGE_OPTIONAL_HEADER64 optional_header_64 = nullptr;
+    PIMAGE_OPTIONAL_HEADER32 optional_header_32 = nullptr;
 
     PeInfo(QWidget *parent = nullptr);
     boolean jiexi_pe();
