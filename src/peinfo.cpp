@@ -170,7 +170,8 @@ void PeInfo::huizhi_pe()
 
         ui->optional_header_biaoge->resizeColumnsToContents();
     }
-    else if (this->optional_header_64)
+    
+    if (this->optional_header_64)
     {
         row                              = 0;
         auto huizhi_hang_optional_header = [&](const char *name, LONG value)
