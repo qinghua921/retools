@@ -8,6 +8,7 @@ PeInfo::PeInfo(QWidget *parent)
       ui(new Ui::PeInfo)
 {
     ui->setupUi(this);
+    ui->zuoshu->expandAll();
 
     connect(ui->zuoshu, &QTreeWidget::itemClicked, this, &PeInfo::zuoshu_dianji);
 }
@@ -51,19 +52,62 @@ void PeInfo::huizhi_pe()
     huizhi_hang("e_cs", this->dos_header->e_cs);
     huizhi_hang("e_lfarlc", this->dos_header->e_lfarlc);
     huizhi_hang("e_ovno", this->dos_header->e_ovno);
-    huizhi_hang("e_res", this->dos_header->e_res[0]);
+
+    ui->dos_header_biaoge->setRowCount(row + 1);
+    ui->dos_header_biaoge->setItem(row, 0, new QTableWidgetItem("e_res"));
+    ui->dos_header_biaoge->setItem(
+        row,
+        1,
+        new QTableWidgetItem(
+            QString("[%1,%2,%3,%4]")
+                .arg(this->dos_header->e_res[0], 0, 16)
+                .arg(this->dos_header->e_res[1], 0, 16)
+                .arg(this->dos_header->e_res[2], 0, 16)
+                .arg(this->dos_header->e_res[3], 0, 16)
+                .toUpper()
+        )
+    );
+    row++;
+
     huizhi_hang("e_oemid", this->dos_header->e_oemid);
     huizhi_hang("e_oeminfo", this->dos_header->e_oeminfo);
-    huizhi_hang("e_res2", this->dos_header->e_res2[0]);
+
+    ui->dos_header_biaoge->setRowCount(row + 1);
+    ui->dos_header_biaoge->setItem(row, 0, new QTableWidgetItem("e_res2"));
+    ui->dos_header_biaoge->setItem(
+        row,
+        1,
+        new QTableWidgetItem(
+            QString("[%1,%2,%3,%4,%5,%6,%7,%8,%9,%10]")
+                .arg(this->dos_header->e_res2[0], 0, 16)
+                .arg(this->dos_header->e_res2[1], 0, 16)
+                .arg(this->dos_header->e_res2[2], 0, 16)
+                .arg(this->dos_header->e_res2[3], 0, 16)
+                .arg(this->dos_header->e_res2[4], 0, 16)
+                .arg(this->dos_header->e_res2[5], 0, 16)
+                .arg(this->dos_header->e_res2[6], 0, 16)
+                .arg(this->dos_header->e_res2[7], 0, 16)
+                .arg(this->dos_header->e_res2[8], 0, 16)
+                .arg(this->dos_header->e_res2[9], 0, 16)
+                .toUpper()
+        )
+    );
+    row++;
+
     huizhi_hang("e_lfanew", this->dos_header->e_lfanew);
+
+    ui->dos_header_biaoge->resizeColumnsToContents();
 }
 
 void PeInfo::zuoshu_dianji(QTreeWidgetItem *item, int column)
 {
     auto text = item->text(column);
     qDebug() << "PeInfo::zuoshu_dianji()" << item->text(column) << column;
+
     if (text == "Dos Header") ui->yemian->setCurrentWidget(ui->dos_header_ye);
-    else if (text == "Nt Header") ui->yemian->setCurrentWidget(ui->nt_header_ye);
+    else if (text == "Nt Header") {}
+    else if (text == "File Header") ui->yemian->setCurrentWidget(ui->file_header_ye);
+    else if (text == "Optional Header") ui->yemian->setCurrentWidget(ui->optional_header_ye);
     else QMessageBox::warning(this, "Error", "Unknown item");
 }
 

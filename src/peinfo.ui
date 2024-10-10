@@ -16,6 +16,12 @@
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QTreeWidget" name="zuoshu">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="minimumSize">
       <size>
        <width>300</width>
@@ -45,6 +51,16 @@
       <property name="text">
        <string>Nt Header</string>
       </property>
+      <item>
+       <property name="text">
+        <string>File Header</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Optional Header</string>
+       </property>
+      </item>
      </item>
     </widget>
    </item>
@@ -79,7 +95,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="nt_header_ye">
+     <widget class="QWidget" name="file_header_ye">
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <property name="topMargin">
         <number>0</number>
@@ -88,7 +104,36 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QTableWidget" name="nt_header_biaoge">
+        <widget class="QTableWidget" name="file_header_biaoge">
+         <column>
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Value</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Description</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="optional_header_ye">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTableWidget" name="optional_header_biaoge">
          <column>
           <property name="text">
            <string>Name</string>

@@ -11,6 +11,7 @@ BinPackArguments: false
 AllowShortIfStatementsOnASingleLine: AllIfsAndElse
 AllowShortLoopsOnASingleLine: true
 AllowShortLambdasOnASingleLine: All
+AllowShortBlocksOnASingleLine: Always
 AlignConsecutiveMacros:
   Enabled: true
   AcrossEmptyLines: true
